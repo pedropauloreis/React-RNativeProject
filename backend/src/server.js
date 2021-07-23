@@ -17,7 +17,9 @@ const io = socketio(server,{
 }); //Ouvir o protocolo websocket
 
 const localVars = require('./config/localVars')
-mongoose.connect('mongodb+srv://aircnc:aircnc@aircnc.e5iyd.mongodb.net/aircnc?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true,})
+const credentials = require('../.mongodb/credentials')
+
+mongoose.connect(credentials.connectionString, {useNewUrlParser: true, useUnifiedTopology: true,})
 
 const connectedUsers = {};
 
